@@ -1,0 +1,35 @@
+name: Bug Report
+description: File a bug report
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also, what did you expect to happen? How can the bug be reproduced?
+      placeholder: Please give a concise description.
+    validations:
+      required: true
+  - type: input
+    id: fw-version
+    attributes:
+      label: Firmware version
+      description: Which version of the PicoWifi firmware are you running?
+      placeholder: 2022-xx-xx 12abcdef
+    validations:
+      required: true
+  - type: textarea
+    id: sw-version
+    attributes:
+      label: Software versions on the Atari
+      description: Which software and which versions are involved on the Atari?
+      value: "USB drivers: ....\nuIP tool: ....\nSTinG driver: ....\nMiNT driver: ...."
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware
+      description: Which USB adapter and which Atari computer are you using?
+      placeholder: E.g., Lightning VME with Atari TT
