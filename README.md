@@ -103,7 +103,7 @@ Note: The USB STinG driver also supports the Asix USB-to-Ethernet adapter. You c
 
 ## Using the PicoWifi with MiNTNet
 
-A PicoWifi driver for FreeMiNT is available: [binary](https://www.chzsoft.de/storage/picowifi.xif), [source code](https://github.com/czietz/freemint/tree/usb_wifi/sys/sockets/xif). Copy `picowifi.xif` into the folder of your MiNT installation which contains the other `.xif` files. Don’t forget to load the MiNT USB stack – see above.
+A PicoWifi driver is available for FreeMiNT and included in the [FreeMiNT snapshot builds](https://freemint.github.io/#snapshots). When updating an existing MiNT installation, copy `picowifi.xif` into the folder of your MiNT installation which contains the other `.xif` files. Don’t forget to load the MiNT USB stack – see above.
 
 The PicoWifi network interface is called `pwi0` and can be configured like any other network interface in MiNT. The following steps describe a minimal setup:
 
