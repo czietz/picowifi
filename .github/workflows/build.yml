@@ -31,7 +31,6 @@ jobs:
     - name: Build binaries
       env:
         PICO_SDK_PATH: ${{ github.workspace }}/pico-sdk
-        PICO_BOARD: pico_w
       run: |
         cmake -B build
         make -C build
