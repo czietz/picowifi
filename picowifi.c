@@ -319,6 +319,13 @@ int main() {
     // Init Ethernet
     cyw43_arch_init();
     cyw43_arch_enable_sta_mode();
+
+    // get our MAC address
+    cyw43_hal_get_mac(0, macaddr);
+    sprintf(mac_as_serial, "%02x%02x%02x%02x%02x%02x", macaddr[0],macaddr[1],macaddr[2],
+                                        macaddr[3],macaddr[4],macaddr[5]);
+    mutex_exit(&usb_ready);
+
     cyw43_wifi_pm(&cyw43_state, CYW43_PERFORMANCE_PM);
 
     if (wifi_cred->magic == WIFI_CRED_MAGIC) {
@@ -332,11 +339,6 @@ int main() {
         next_wifi_try = at_the_end_of_time;
     }
 
-    // get our MAC address
-    cyw43_hal_get_mac(0, macaddr);
-    sprintf(mac_as_serial, "%02x%02x%02x%02x%02x%02x", macaddr[0],macaddr[1],macaddr[2],
-                                        macaddr[3],macaddr[4],macaddr[5]);
-    mutex_exit(&usb_ready);
 
     while(true) {
 
