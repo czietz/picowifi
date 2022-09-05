@@ -93,7 +93,7 @@ Configure STinG as indicated in its documentation. As a quick reminder, the foll
 - In the _STinG Port Setup_ CPX, select and activate the hardware – called *USBether* – and assign it an IP address within your home network and the appropriate subnet mask. (STinG does not support automatically getting an IP address via DHCP.)
 - In the _STinG Protocols_ CPX under _Resolver_ assign a DNS server, most likely your home router.
 - Edit the `STING\ROUTE.TAB` file with a text editor to define routes to your home network and a default route using your home router as a gateway.
-- Furthermore, for best performance, I recommend reducing the _Delay_ value in the _STinG Internals_ CPX to 10.
+- Furthermore, for best network performance, I recommend reducing the _Delay_ value in the _STinG Internals_ CPX to 10 on faster computers (e.g., Atari TT).
 
 Again, the LED on the PicoWifi indicates a successful connection.
 
