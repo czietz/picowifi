@@ -74,6 +74,8 @@ A version of the uIP-Tool adapted for the PicoWifi offers a straight-forward way
 
 On the Atari start `UIP.TOS` and wait until the PicoWifi has established its Wifi connection. The LED on the PicoWifi indicates a successful connection. If your network router automatically assigns IP addresses, you will then be shown the IP address under which you can connect to your Atari from another computer using a web browser (HTTP) or an FTP client.
 
+uIP-Tool can be terminated by pressing (almost) any key; for example, _Space_ or _Esc_. Don’t exit it by pressing _Ctrl+C_, as this can leave the USB stack in an inconsistent state.
+
 Please refer to the [uIP-Tool documentation](https://bitbucket.org/sqward/uip-tools/src/master/README.md) for further explanation, in particular if you need to manually configure an IP address.
 
 Troubleshooting:
