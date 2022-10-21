@@ -80,7 +80,7 @@ Please refer to the [uIP-Tool documentation](https://bitbucket.org/sqward/uip-to
 
 Troubleshooting:
 
-- Using `USBTOOL.ACC` (from the Desktop menu: Desk – USB Utility) check that the PicoWifi is recognized as a USB device. If not, try replacing the cable.
+- Using `USBTOOL.ACC` (from the Desktop menu: Desk – USB Utility) check that the PicoWifi is recognized as a USB device. If not, try replacing the cable, as some USB cables are only wired for charging but not for data transfer.
 - If the PicoWifi is listed as a USB device but uIP-Tool still fails to connect to your Wifi network, you can get status information by pressing the _F2_ key within the uIP-Tool. Pay particular attention to the _Wifi status_ line. (Note: If the password is wrong, the status might toggle between _Connected_ and _Authentication failed_ when you repeatedly press *F2*).
 - By pressing the _F2_ key within the uIP-Tool you will also be shown the Received Signal Strength Indicator (RSSI). Values of -40 dB to -50 dB are very good. -60 dB is okay, -80 dB indicates a borderline weak connection.
 - If you experience instability, e.g., sudden loss of connection or aborted transfers, even though the RSSI is good, try a different cable. Some cables cannot properly supply the peak current when the PicoWifi is transmitting[^3].
