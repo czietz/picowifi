@@ -34,6 +34,8 @@ pico_enable_stdio_uart(picowifi 1)
 target_compile_definitions(picowifi PRIVATE
 PICO_STACK_SIZE=8192
 PICO_CORE1_STACK_SIZE=4096
+# see https://github.com/raspberrypi/pico-sdk/issues/1260
+TUD_OPT_RP2040_USB_DEVICE_UFRAME_FIX=0
 CYW43_SLEEP_CHECK_MS=3
 FW_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
 FW_VERSION_MINOR=${PROJECT_VERSION_MINOR}

@@ -1,7 +1,7 @@
 /*
  * PicoWifi: Raspberry Pi Pico W Wifi to USB bridge
  *
- * Copyright (c) 2022 Christian Zietz <czietz@gmx.net>
+ * Copyright (c) 2022 - 2023 Christian Zietz <czietz@gmx.net>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -290,7 +290,7 @@ void core1_entry(void)
                 break;
             }
         }
-        //tud_vendor_flush(); // <- only required for newer TinyUSB
+        tud_vendor_flush();
     }
 }
 
