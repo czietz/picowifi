@@ -127,11 +127,7 @@ Still, please feel free to report issues using [GitHub’s issue tracker](https:
 
 In case you don’t want to use the [pre-built binaries](https://github.com/czietz/picowifi/releases/tag/latest), you can build the PicoWifi firmware from the source code in this repository. The [Getting started with Raspberry Pi Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) guide explains how to install the SDK and toolchain for the Raspberry Pi Pico and how to use `cmake` and `make` to build software.
 
-There is one caveat: The current (v.1.4.0) Raspberry Pi Pico SDK does not allow building with only low-level Wifi support (i.e., without including lwIP). Therefore, you have to use the following fork of the SDK instead of the official SDK described in the _Getting started_ guide.
-
-```
-git clone -b without_lwip https://github.com/czietz/pico-sdk.git
-```
+The PicoWifi firmware is intended to be built with Pico SDK v.1.5.0.
 
 [^1]: Despite the name similarity, the Raspberry Pi Pico is not to be confused with the Raspberry Pi Zero, 1, 2, 3, 4. While the latter are single-board computers running Linux, the Raspberry Pi Pico is a board based on the much smaller RP2040 ARM Cortex M0+ _microcontroller_. The PicoWifi project does not support the Linux-based Raspberry Pi Zero, 1, 2, 3, 4, and will not be ported to them.
 
