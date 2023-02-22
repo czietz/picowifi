@@ -40,8 +40,8 @@ jobs:
       run: |
         git log -1 --date=short "--format=format:date: %cd %h%n" >> README.yaml
         pandoc -s -o README.pdf -t latex --metadata-file=README.yaml --template eisvogel README.md
-    - name: Save binary as pre-release
-      uses: "marvinpinto/action-automatic-releases@v1.2.1"
+    - name: Save binary as release
+      uses: "czietz/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
