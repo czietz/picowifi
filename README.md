@@ -19,7 +19,7 @@ There is no official supplier of pre-programmed PicoWifi hardware, but people ar
 
 ## System requirements
 
-- A USB interface in your Atari, e.g., the [Lightning VME](https://wiki.newtosworld.de/index.php?title=Lightning_VME_En), [Lightning ST](https://wiki.newtosworld.de/index.php?title=Lightning_ST), or NetUSBee.
+- A USB interface in your Atari, e.g., the [Lightning VME](https://wiki.newtosworld.de/index.php?title=Lightning_VME_En), [Lightning ST](https://wiki.newtosworld.de/index.php?title=Lightning_ST), [TwiSTEr](https://www.newtosworld.de/viewtopic.php?t=82), or NetUSBee.
 - A Raspberry Pi Pico W[^1], preferably obtained from an [authorized reseller](https://www.raspberrypi.com/products/raspberry-pi-pico/#find-reseller) for about 6 USD / 7 €.
   Note: Select *Wireless = yes* from the page above and make sure you buy a Pico **W** (= with Wifi). A Raspberry Pi Pico (without W) cannot be used.
 - No other hardware except for a suitable USB cable (Micro USB B) is needed.
