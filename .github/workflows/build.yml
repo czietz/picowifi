@@ -8,13 +8,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     steps:
     - uses: actions/checkout@v3
     - name: Install Pico SDK and toolchain
       run: |
-        git clone -b "1.5.0" --depth=1 https://github.com/raspberrypi/pico-sdk.git
+        git clone -b "2.1.0" --depth=1 https://github.com/raspberrypi/pico-sdk.git
         cd pico-sdk
         git submodule update --init --depth=1
         cd ..
@@ -27,12 +27,21 @@ jobs:
       run: |
         wget https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v2.0.0/Eisvogel-2.0.0.zip
         unzip Eisvogel-2.0.0.zip eisvogel.latex
-    - name: Build binaries
+    - name: Build binaries for Pico W
       env:
         PICO_SDK_PATH: ${{ github.workspace }}/pico-sdk
       run: |
         cmake -B build
         make -C build
+        mv build/picowifi.uf2 build/picowifi-pico_w.uf2
+    - name: Build binaries for Pico 2 W
+      env:
+        PICO_SDK_PATH: ${{ github.workspace }}/pico-sdk
+        PICO_BOARD: pico2_w
+      run: |
+        cmake -B build2
+        make -C build2
+        mv build2/picowifi.uf2 build2/picowifi-pico2_w.uf2
     - name: Build tools
       run: |
         zip wificred-store.zip wificred-store.py wificred-delete.uf2
@@ -48,6 +57,7 @@ jobs:
         title: "Latest firmware"
         prerelease: false
         files: |
-          build/picowifi.uf2
+          build/picowifi-pico_w.uf2
+          build2/picowifi-pico2_w.uf2
           wificred-store.zip
           README.pdf

@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 
-# Build for Pico W
-set(PICO_BOARD "pico_w")
+# Build for Pico W unless speicifed otherwise
+if (NOT DEFINED ENV{PICO_BOARD})
+  if (NOT DEFINED PICO_BOARD)
+    set(PICO_BOARD "pico_w")
+  endif()
+endif()
 
 # Pull in PICO SDK (must be before project)
 include(pico_sdk_import.cmake)
