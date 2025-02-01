@@ -20,17 +20,16 @@ There is no official supplier of pre-programmed PicoWifi hardware, but people ar
 ## System requirements
 
 - A USB interface in your Atari, e.g., the [Lightning VME](https://wiki.newtosworld.de/index.php?title=Lightning_VME_En), [Lightning ST](https://wiki.newtosworld.de/index.php?title=Lightning_ST), [TwiSTEr](https://www.newtosworld.de/viewtopic.php?t=82), or NetUSBee.
-- A Raspberry Pi Pico W[^1], preferably obtained from an [authorized reseller](https://www.raspberrypi.com/products/raspberry-pi-pico/#find-reseller) for about 6 USD / 7 €.
-  Note: Select *Wireless = yes* from the page above and make sure you buy a Pico **W** (= with Wifi). A Raspberry Pi Pico (without W) cannot be used.
-  Note: The firmware is built for the original Raspberry Pi Pico W. The newer Raspberry Pi Pico 2 W is not yet supported.
+- A Raspberry Pi Pico W or Pico 2 W[^1], preferably obtained from an [authorized reseller](https://www.raspberrypi.com/products/raspberry-pi-pico/#find-reseller) for about 6 USD / 7 €.
+  Note: Select *Wireless = yes* from the page above and make sure you buy a Pico **W** (= with Wifi). A Raspberry Pi Pico (without W) cannot be used. The newer and more expensive Raspberry Pi Pico **2 W** can be used, but only brings a small performance improvement for PicoWifi.
 - No other hardware except for a suitable USB cable (Micro USB B) is needed.
 
 ## Firmware installation and upgrade
 
-- Hold down the _BOOTSEL_ button on the Raspberry Pi Pico W while connecting it to a computer.
-- The Raspberry Pi Pico W will appear as a USB mass storage device – like a USB stick.
-- Copy the `picowifi.uf2` [firmware file](https://github.com/czietz/picowifi/releases/tag/latest) onto this USB mass storage device.
-- The Raspberry Pi Pico W will automatically reboot and appear as a new USB device named _PicoWifi_. You can verify this in the Device Manager under Windows, with the `lsusb -v` command under Linux, or with `ioreg -p IOUSB` on macOS.
+- Hold down the _BOOTSEL_ button on the Raspberry Pi Pico W or Pico 2 W while connecting it to a computer.
+- The Raspberry Pi Pico W or Pico 2 W will appear as a USB mass storage device – like a USB stick.
+- Copy the [firmware file](https://github.com/czietz/picowifi/releases/tag/latest) onto this USB mass storage device: ` picowifi-pico_w.uf2 ` for the Raspberry Pi Pico W, ` picowifi-pico2_w.uf2 ` for the Raspberry Pi Pico 2 W.
+- The Raspberry Pi Pico W or Pico 2 W will automatically reboot and appear as a new USB device named _PicoWifi_. You can verify this in the Device Manager under Windows, with the `lsusb -v` command under Linux, or with `ioreg -p IOUSB` on macOS.
 - Repeat these steps whenever you want to upgrade the firmware to a newer version.
 
 ## USB driver requirements on the Atari
@@ -63,11 +62,11 @@ Note: The FreeMiNT driver will also search for `/etc/wificred.cfg` if the files 
 
 ### Storing the credentials on the PicoWifi
 
-Alternatively, the SSID and password can be stored in the flash memory on the PicoWifi. The Python[^2] script `wificred-store.py` will ask for your Wifi credentials and store them into a file `wificred.uf2` in the current directory. `wificred.uf2` then needs to be written to the Raspberry Pi Pico W in the same way as the firmware: connect while holding the _BOOTSEL_ button, then copy file.
+Alternatively, the SSID and password can be stored in the flash memory on the PicoWifi. The Python[^2] script `wificred-store.py` will ask for your Wifi credentials and store them into a file `wificred.uf2` in the current directory. `wificred.uf2` then needs to be written to the Raspberry Pi Pico W (or Pico 2 W) in the same way as the firmware: connect while holding the _BOOTSEL_ button, then copy file.
 
 Afterwards, `WIFICRED.CFG` on the Atari is no longer used, as the credentials stored on the PicoWifi take precedence.
 
-The stored Wifi credentials are _not_ overwritten by a firmware update. In case you want to delete them again, copy the `wificred-delete.uf2` file to the Raspberry Pi Pico W.
+The stored Wifi credentials are _not_ overwritten by a firmware update. In case you want to delete them again, copy the `wificred-delete.uf2` file to the Raspberry Pi Pico W (or Pico 2 W).
 
 ## Using PicoWifi with the uIP-Tool
 
@@ -128,9 +127,11 @@ Still, please feel free to report issues using [GitHub’s issue tracker](https:
 
 In case you don’t want to use the [pre-built binaries](https://github.com/czietz/picowifi/releases/tag/latest), you can build the PicoWifi firmware from the source code in this repository. The [Getting started with Raspberry Pi Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) guide explains how to install the SDK and toolchain for the Raspberry Pi Pico and how to use `cmake` and `make` to build software.
 
-The PicoWifi firmware is intended to be built with Pico SDK v.1.5.0.
+By default, the firmware will be built for the Raspberry Pi Pico W. You can build it for the Pico 2 W by setting the environment variable `PICO_BOARD=pico2_w`.
 
-[^1]: Despite the name similarity, the Raspberry Pi Pico is not to be confused with the Raspberry Pi Zero, 1, 2, 3, 4. While the latter are single-board computers running Linux, the Raspberry Pi Pico is a board based on the much smaller RP2040 ARM Cortex M0+ _microcontroller_. The PicoWifi project does not support the Linux-based Raspberry Pi Zero, 1, 2, 3, 4, and will not be ported to them.
+The PicoWifi firmware is intended to be built with Pico SDK v.2.1.0.
+
+[^1]: Despite the name similarity, the Raspberry Pi Pico is not to be confused with the Raspberry Pi Zero, 1, 2, 3, 4. While the latter are single-board computers running Linux, the Raspberry Pi Pico is a board based on the much smaller RP2040 ARM Cortex M0+ _microcontroller_ (or RP2350 ARM Cortex M33 in case of the Raspberry Pi Pico 2). The PicoWifi project does not support the Linux-based Raspberry Pi Zero, 1, 2, 3, 4, and will not be ported to them.
 
 [^2]: Windows users might have to [install Python](https://www.python.org/downloads/) first.
 
