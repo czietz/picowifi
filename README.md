@@ -129,7 +129,7 @@ In case you don’t want to use the [pre-built binaries](https://github.com/czie
 
 By default, the firmware will be built for the Raspberry Pi Pico W. You can build it for the Pico 2 W by setting the environment variable `PICO_BOARD=pico2_w`.
 
-The PicoWifi firmware is intended to be built with Pico SDK v.2.1.0.
+The PicoWifi firmware is intended to be built with Pico SDK v.2.1.1.
 
 [^1]: Despite the name similarity, the Raspberry Pi Pico is not to be confused with the Raspberry Pi Zero, 1, 2, 3, 4. While the latter are single-board computers running Linux, the Raspberry Pi Pico is a board based on the much smaller RP2040 ARM Cortex M0+ _microcontroller_ (or RP2350 ARM Cortex M33 in case of the Raspberry Pi Pico 2). The PicoWifi project does not support the Linux-based Raspberry Pi Zero, 1, 2, 3, 4, and will not be ported to them.
 
