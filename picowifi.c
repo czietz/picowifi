@@ -284,7 +284,7 @@ void core1_entry(void)
 
 
             if (usb_connected && (tud_vendor_write_available() >= (temp_pkt.len + offsetof(pkt_s, payload)))) {
-                queue_remove_blocking(&qinbound, &temp_pkt);
+                queue_remove_blocking(&qinbound, NULL); // data is already in temp_pkt
                 tud_vendor_write(&temp_pkt, temp_pkt.len + offsetof(pkt_s, payload));
             } else {
                 break;
