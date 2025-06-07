@@ -70,7 +70,7 @@ The stored Wifi credentials are _not_ overwritten by a firmware update. In case 
 
 ## Using PicoWifi with the uIP-Tool
 
-A version of the uIP-Tool adapted for the PicoWifi offers a straight-forward way of exchanging files between your Atari and another computer: Get `uip-usb-master.tos` from [here](https://bitbucket.org/czietz/uip-tools/downloads/) (and rename it to `UIP.TOS`).
+A version of the uIP-Tool adapted for the PicoWifi offers a straight-forward way of exchanging files between your Atari and another computer: Get `uip-usb-master.tos` from [here](https://github.com/czietz/uip-tools-mirror/releases/tag/latest) (and rename it to `UIP.TOS`).
 
 On the Atari start `UIP.TOS` and wait until the PicoWifi has established its Wifi connection. The LED on the PicoWifi indicates a successful connection. If your network router automatically assigns IP addresses, you will then be shown the IP address under which you can connect to your Atari from another computer using a web browser (HTTP) or an FTP client.
 
