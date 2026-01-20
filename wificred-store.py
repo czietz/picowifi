@@ -4,7 +4,7 @@
 #
 # Helper script to store Wifi credentials in flash ROM
 #
-# Copyright (c) 2022 Christian Zietz <czietz@gmx.net>
+# Copyright (c) 2022 - 2026 Christian Zietz <czietz@gmx.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,9 +27,12 @@ wifi_ssid = input("WIFI SSID: ")
 wifi_pass = input("WIFI Password: ")
 
 # build UF2
-header = struct.pack("<4sLLLLLLL", b"UF2\n", 0x9E5D5157, # header
+hdr_2040 = struct.pack("<4sLLLLLLL", b"UF2\n", 0x9E5D5157, # header
                      0x2000, 0x101F0000, 256, # flags, address, len
                      0, 1, 0xe48bff56) # block number, total blocks, RP2040 ID
+hdr_2350 = struct.pack("<4sLLLLLLL", b"UF2\n", 0x9E5D5157, # header
+                     0x2000, 0x101F0000, 256, # flags, address, len
+                     0, 1, 0xe48bff58) # block number, total blocks, RP2350 "data" ID
 _magic   = 0x55AAAA55
 _wpaauth = 0x00400004
 payload = struct.pack("<L64s64sL", _magic, wifi_ssid.encode("latin1"), wifi_pass.encode("latin1"), _wpaauth)
@@ -38,8 +41,13 @@ footer  = struct.pack("<L", 0x0AB16F30) # final magic
 
 # write UF2
 try:
-	with open("wificred.uf2", "wb") as uf2:
-		uf2.write(header)
+	with open("wificred-rp2040.uf2", "wb") as uf2:
+		uf2.write(hdr_2040)
+		uf2.write(payload)
+		uf2.write(filler)
+		uf2.write(footer)
+	with open("wificred-rp2350.uf2", "wb") as uf2:
+		uf2.write(hdr_2350)
 		uf2.write(payload)
 		uf2.write(filler)
 		uf2.write(footer)

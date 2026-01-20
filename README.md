@@ -62,11 +62,11 @@ Note: The FreeMiNT driver will also search for `/etc/wificred.cfg` if the files 
 
 ### Storing the credentials on the PicoWifi
 
-Alternatively, the SSID and password can be stored in the flash memory on the PicoWifi. The Python[^2] script `wificred-store.py` will ask for your Wifi credentials and store them into a file `wificred.uf2` in the current directory. `wificred.uf2` then needs to be written to the Raspberry Pi Pico W (or Pico 2 W) in the same way as the firmware: connect while holding the _BOOTSEL_ button, then copy file.
+Alternatively, the SSID and password can be stored in the flash memory on the PicoWifi. The Python[^2] script `wificred-store.py` will ask for your Wifi credentials and store them into files named `wificred-rp2040.uf2` and `wificred-rp2350.uf2` in the current directory. The respective file needs to be written to the Raspberry Pi Pico W (`wificred-rp2040.uf2`) or Pico 2 W (`wificred-rp2350.uf2`) in the same way as the firmware: connect while holding the _BOOTSEL_ button, then copy file.
 
 Afterwards, `WIFICRED.CFG` on the Atari is no longer used, as the credentials stored on the PicoWifi take precedence.
 
-The stored Wifi credentials are _not_ overwritten by a firmware update. In case you want to delete them again, copy the `wificred-delete.uf2` file to the Raspberry Pi Pico W (or Pico 2 W).
+The stored Wifi credentials are _not_ overwritten by a firmware update. In case you want to delete them again, copy the `wificred-delete-*.uf2` file to the Raspberry Pi Pico W (or Pico 2 W).
 
 ## Using PicoWifi with the uIP-Tool
 
