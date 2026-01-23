@@ -41,12 +41,13 @@ footer  = struct.pack("<L", 0x0AB16F30) # final magic
 
 # write UF2
 try:
-	with open("wificred-rp2040.uf2", "wb") as uf2:
+	with open("wificred.uf2", "wb") as uf2:
+		# block for RP2040
 		uf2.write(hdr_2040)
 		uf2.write(payload)
 		uf2.write(filler)
 		uf2.write(footer)
-	with open("wificred-rp2350.uf2", "wb") as uf2:
+		# block for RP2040
 		uf2.write(hdr_2350)
 		uf2.write(payload)
 		uf2.write(filler)
