@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6
     - name: Install Pico SDK and toolchain
       run: |
         git clone -b "2.1.1" --depth=1 https://github.com/raspberrypi/pico-sdk.git
